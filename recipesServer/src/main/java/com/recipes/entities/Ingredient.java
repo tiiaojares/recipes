@@ -1,7 +1,9 @@
 package com.recipes.entities;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 
+@Entity
 public class Ingredient {
     @jakarta.persistence.Id
     private Integer Id;
