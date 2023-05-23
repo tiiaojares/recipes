@@ -1,11 +1,11 @@
 package com.recipes.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
 public class Ingredient {
-    @jakarta.persistence.Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
     @Column (name = "recipe_id")
     private Integer recipeId;
