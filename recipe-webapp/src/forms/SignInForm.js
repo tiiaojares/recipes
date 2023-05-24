@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-const SignInForm = ({setCreateAccount}) => {
+const SignInForm = ({changeCreateNewAccount}) => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [submit, changeSubmit] = useState(false);
@@ -18,11 +18,10 @@ const SignInForm = ({setCreateAccount}) => {
             console.log("email: ", userName)
             console.log("password: ", password)
         }
-
     }
 
     function createAccount() {
-        setCreateAccount(true);
+        changeCreateNewAccount(true);
     }
 
     return (
@@ -53,7 +52,7 @@ const SignInForm = ({setCreateAccount}) => {
                 <Button variant="success" onClick={() => signIn()}>
                     Submit
                 </Button>
-                <p>Or create an account <u onClick={() => createAccount()}>here</u> </p>
+                <p>Or create a new account <u onClick={() => createAccount()}>here</u> </p>
             </Form>
         </div>
     )
