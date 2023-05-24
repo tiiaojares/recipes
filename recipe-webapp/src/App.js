@@ -3,10 +3,15 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import { SignInForm } from './forms/SignInForm';
+import { NewAccountForm } from './forms/NewAccountForm';
+import Form from 'react-bootstrap/Form';
+
 
 
 const App = () => {
-    const [createAccount, setCreateAccount] = useState(false);
+    const [createNewAccount, changeCreateNewAccount] = useState(false);
+    const [newAccountSuccess, setNewAccountSuccess] = useState(false);
+    
 
 
     useEffect(() => {
@@ -18,14 +23,34 @@ const App = () => {
            })
     })
 
-   
+    function createNewAccountSuccess() {
+        changeCreateNewAccount(false);
+        setNewAccountSuccess(true);
+        setTimeout(() => {
+            setNewAccountSuccess(false);
+        }, 3000)
+
+    }
+
+
     return (
         <div>
     <div className="bg-image p-5 text-center shadow-1-strong rounded mb-5">
-        <div className="container">
-            { !createAccount ?
-                <SignInForm setCreateAccount={setCreateAccount} />
-            :null
+    {newAccountSuccess &&
+                        <Form className="success">
+                            <Form.Label>
+                                New account created!
+                            </Form.Label>
+                        </Form> }
+        <div className="container mainPageContainer">
+            { !createNewAccount ?
+                <div>
+                   
+                    <SignInForm 
+                        changeCreateNewAccount={changeCreateNewAccount} /> 
+                </div>:
+                <NewAccountForm createNewAccountSuccess={createNewAccountSuccess}/>
+            
                 
             }
         </div>

@@ -3,14 +3,18 @@
     height: 100vh;
     
 }
+.mainPageContainer {
+    position: relative;
+}
 
 .signInComponent {
+    position: absolute;
     padding: 1rem;
     background-color: #f2f2f2;
     opacity: 95%;
-    margin-top: 25%;
     border-radius: 20px;
 }
+
 
 .signInForm {
     padding: 1rem;
@@ -40,6 +44,7 @@ form > p > u:hover {
 form > .btn {
     background-color: rgb(29, 133, 29);
     width: 100%;
+
 }
 form > .btn:hover {
     background-color: rgb(0, 92, 0);
@@ -47,12 +52,49 @@ form > .btn:hover {
 
 @media screen and (min-width: 600px) {
     .signInComponent {
+        position: absolute;
     width: 50%;
     margin-left: 25%;
     margin-top: 15%;
     }
+    .success {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        top: 3rem;
+        left: 0;
+        padding: 1rem;
+        margin-top: 1rem;
+        background-color: #f2f2f2;
+        text-align: center;
+        font-size: 1rem;
+        opacity: 70%;
+
+    }
     
    
+}
+@media screen and (max-width: 600px) {
+    .signInComponent {
+        position: absolute;
+        width: 95%;
+        margin: 0;
+        margin-top: 30%;
+    }
+    .success {
+        position: absolute;
+        width: 100%;
+        top: 2rem;
+        left: 0;
+        padding: 1rem;
+        margin-top: 1.5rem;
+        background-color: #f2f2f2;
+        text-align: center;
+        font-size: 1rem;
+        opacity: 70%;
+
+    }
+
 }
 
     
