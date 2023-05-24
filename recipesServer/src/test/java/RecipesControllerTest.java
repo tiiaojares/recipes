@@ -14,6 +14,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MockMvcBuilder;
+import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -73,5 +74,28 @@ public class RecipesControllerTest {
                 .andExpect(jsonPath("$", notNullValue()))
                 .andExpect(jsonPath("$.title", is("kuvaus1")));
 
+    }
+
+    @Test
+    public void createRecipe_success() throws Exception {
+        Recipe newRecipe = Recipe.builder()
+                .Id(4)
+                .title("otsikko4")
+                .description("kuvaus4")
+                .build();
+
+        Mockito.when(recipeRepository.save(newRecipe)).thenReturn(newRecipe);
+
+        String content = objectWriter.writeValueAsString(newRecipe);
+
+        MockHttpServletRequestBuilder mockRequst = MockMvcRequestBuilders.post("/recipes")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(content);
+
+        mockMvc.perform(mockRequst)
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", notNullValue()))
+                .andExpect(jsonPath("$.title", is("otsikko4")));
     }
 }
