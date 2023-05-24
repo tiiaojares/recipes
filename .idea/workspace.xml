@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="70ada650-c9a5-4d4e-b234-e70fc58030b4" name="Changes" comment="added proxy: http://localhost:8081">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipesServer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/recipesServer/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recipesServer/src/main/java/com/recipes/entities/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipesServer/src/main/java/com/recipes/entities/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recipesServer/src/test/java/RecipesControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/recipesServer/src/test/java/RecipesControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

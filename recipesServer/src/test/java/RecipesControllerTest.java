@@ -62,4 +62,16 @@ public class RecipesControllerTest {
                 .andExpect(jsonPath("$[2].title", is("kuvaus3")));
     }
 
+    @Test
+    public void getRecipeById_success() throws Exception {
+        Mockito.when(recipeRepository.findById(recipe1.getId())).thenReturn(java.util.Optional.of(recipe1));
+
+        mockMvc.perform(MockMvcRequestBuilders
+                .get("/recipes/1")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", notNullValue()))
+                .andExpect(jsonPath("$.title", is("kuvaus1")));
+
+    }
 }
