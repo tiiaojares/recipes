@@ -21,6 +21,12 @@ public class Recipe {
     public Recipe() {
 
     }
+    public Recipe(Integer id, String title, String description) {
+        this.Id = id;
+        this.title = title;
+        this.description = description;
+
+    }
 
     public Integer getId() {
         return Id;
