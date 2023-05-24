@@ -1,0 +1,59 @@
+.bg-image {
+    background-image: url(C:\Users\Tiia\Documents\training\recipes\recipe-webapp\src\images\food.jpg);
+    height: 100vh;
+    
+}
+
+.signInComponent {
+    padding: 1rem;
+    background-color: #f2f2f2;
+    opacity: 95%;
+    margin-top: 25%;
+    border-radius: 20px;
+}
+
+.signInForm {
+    padding: 1rem;
+    color: black;
+    text-align: left;
+}
+
+form > p {
+    margin-top: 2rem;
+    margin-bottom: 0rem;
+}
+form > p > u {
+    color: blue;
+}
+form > p > u:hover {
+    cursor: pointer;
+} 
+.alertText {
+    color: red;
+    margin-top: 0.25rem;
+    font-size: .875em;
+    --bs-text-opacity: 1;
+    margin-left: 0.8rem;
+}
+
+
+form > .btn {
+    background-color: rgb(29, 133, 29);
+    width: 100%;
+}
+form > .btn:hover {
+    background-color: rgb(0, 92, 0);
+}
+
+@media screen and (min-width: 600px) {
+    .signInComponent {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 15%;
+    }
+    
+   
+}
+
+    
+
