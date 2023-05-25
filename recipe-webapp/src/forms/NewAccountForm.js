@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import axios from 'axios';
+import userService from '../services/user';
 
 
 const NewAccountForm = ({createNewAccountSuccess}) => {
@@ -10,18 +11,37 @@ const NewAccountForm = ({createNewAccountSuccess}) => {
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2] = useState("");
     const [submit, changeSubmit] = useState(false);
-    const [falsePassword, changeFalsePassword] = useState(false);
-
+    const [info, setInfo] = useState(false);
+ 
 
     function createAccount() {
         if (name && userName && password1 && password2) {
-            if (password1 === password2) {
-                createNewAccountSuccess();
+            axios.get("/user/login/"+userName).then(response => {
+                if (response.data === "") {
+                    if (password1 === password2) {
+                        const userObject = {
+                            name: name,
+                            username: userName,
+                            password: password1
+                        }
+                        userService
+                            .createUser(userObject)
+                            .then(response => {
+                                createNewAccountSuccess();
+                                console.log("new account created")
+                            })
+                            .catch(error => {
+                                console.log(error.response.data.error)
+                            })
+                    } else {
+                        setInfo("The password and its confirmation do not match...");
+                        changeSubmit(false);
+                    }
+                } else {
+                    setInfo("Username not available");
+                }
+            })     
                
-            } else {
-                changeFalsePassword(true);
-                changeSubmit(false);
-            }
         } else {
             changeSubmit(true);
         }  
@@ -29,14 +49,13 @@ const NewAccountForm = ({createNewAccountSuccess}) => {
 
 
     return (
-       
         <div className="signInComponent">   
              <h2> Create a new account: </h2>
             <Form className="signInForm">
 
-                { falsePassword && 
-                    <Form.Label style={{color:'red'}}>
-                        The password and its confirmation do not match...
+                { info && 
+                    <Form.Label className="infoText">
+                        { info }
                     </Form.Label>}
            
                 <Form.Group className="mb-3" >
