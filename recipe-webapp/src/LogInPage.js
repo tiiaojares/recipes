@@ -34,7 +34,10 @@ const LogInPage = ({setLogIn}) => {
                     <SignInForm 
                         changeCreateNewAccount={changeCreateNewAccount} 
                         setLogIn={setLogIn} /> :
-                    <NewAccountForm createNewAccountSuccess={createNewAccountSuccess}/> }
+                    <NewAccountForm 
+                        createNewAccountSuccess={createNewAccountSuccess}
+                        changeCreateNewAccount={changeCreateNewAccount}
+                    /> }
 
             </div>
         </div>

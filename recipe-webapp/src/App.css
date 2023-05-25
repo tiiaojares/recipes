@@ -46,6 +46,11 @@ form > .btn {
     width: 100%;
 }
 
+.closeIcon {
+    text-align: right;
+    margin-right: 1rem;
+    cursor: pointer;
+}
 
 
 @media screen and (min-width: 600px) {
