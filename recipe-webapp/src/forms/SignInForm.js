@@ -17,7 +17,7 @@ const SignInForm = ({changeCreateNewAccount, setLogIn}) => {
                     changeWrongPassword(true);
                 } else {
                     if (response.data.password === password) {
-                        console.log("sisään kirjaus onnistui, tervetuloa ", response.data.name);
+                        console.log("wellcome ", response.data.name);
                         setLogIn(true);
                     } else {
                         changeWrongPassword(true);
@@ -28,10 +28,6 @@ const SignInForm = ({changeCreateNewAccount, setLogIn}) => {
         }
     }
 
-
-    // function createAccount() {
-    //     changeCreateNewAccount(true);
-    // }
 
     return (
         <div className="signInComponent">
