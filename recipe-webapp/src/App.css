@@ -1,7 +1,8 @@
-.bg-image {
+.bgimage {
     background-image: url(C:\Users\Tiia\Documents\training\recipes\recipe-webapp\src\images\food.jpg);
     height: 100vh;
-    
+    background-size: cover;
+    padding-bottom: 0;
 }
 .mainPageContainer {
     position: relative;
