@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -23,6 +23,12 @@ public class UserController {
     User create(@RequestBody User newUser) {
         userRepo.saveAndFlush(newUser);
         return newUser;
+    }
+
+    @GetMapping("/login/{username}")
+    User getUserByUsername(@PathVariable String username) {
+        User foundUser = userRepo.findByUsername(username);
+        return foundUser;
     }
 
 
