@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
-const SignInForm = ({changeCreateNewAccount}) => {
+const SignInForm = ({changeCreateNewAccount, setLogIn}) => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [submit, changeSubmit] = useState(false);
@@ -10,9 +11,17 @@ const SignInForm = ({changeCreateNewAccount}) => {
     function signIn() {
         changeSubmit(true);
         if (userName  && password) {
-            console.log("kirjautuminen onnistui")
-            setUserName("");
-            setPassword("");
+            axios.get("/user/login/"+userName).then(response => {
+                if (response.data === "") {
+                    console.log("väärä tunnus tai salasana")
+                } else {
+                    if (response.data.password === password) {
+                        console.log("sisään kirjaus onnistui: ", response.data)
+                    } else {
+                        console.log("väärä tunnus tai salasana")
+                    }       
+                }
+            })
             changeSubmit(false);
         } else {
             console.log("email: ", userName)
