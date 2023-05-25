@@ -60,14 +60,10 @@ const SignInForm = ({changeCreateNewAccount, setLogIn}) => {
                     <Form.Label style={{color:'red', textAlign:'left', marginBottom: '1rem'}}>
                         Wrong username or password
                     </Form.Label>}
-                <Button className="btn btn-success" onClick={() => signIn()}>
+                <Button variant="success" onClick={() => signIn()}>
                     Submit
                 </Button>
-                <p style={{textAlign: 'center', margin: '1rem', color:'#198754'}}>OR</p>
-                
-                <button className="btn btn-outline-success" onClick={() => changeCreateNewAccount(true)}>
-                Create account
-                </button>
+                <p>Or create a new account <u onClick={() => changeCreateNewAccount(true)}> here </u> </p>
             </Form>
         </div>
     )
