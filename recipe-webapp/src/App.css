@@ -54,9 +54,13 @@ form > .btn:hover {
 @media screen and (min-width: 600px) {
     .signInComponent {
         position: absolute;
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 15%;
+        width: 50%;
+        margin-left: 25%;
+        margin-top: 15%;
+    }
+    .infoText {
+        color: red;
+        text-align: left;
     }
     .success {
         position: absolute;
@@ -68,9 +72,8 @@ form > .btn:hover {
         margin-top: 1rem;
         background-color: #f2f2f2;
         text-align: center;
-        font-size: 1rem;
-        opacity: 70%;
-
+        font-size: 1.5rem;
+        opacity: 80%;
     }
     
    
@@ -81,6 +84,11 @@ form > .btn:hover {
         width: 95%;
         margin: 0;
         margin-top: 30%;
+    }
+    .infoText {
+        color: red;
+        text-align: left;
+        font-size: 0.8rem;
     }
     .success {
         position: absolute;
