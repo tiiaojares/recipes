@@ -1,8 +1,9 @@
-import { useState } from 'react';
+
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import userService from '../services/user';
+import { useState } from 'react';
+import bcrypt from 'bcryptjs';
 
 
 const NewAccountForm = ({ createNewAccountSuccess, changeCreateNewAccount }) => {
@@ -12,26 +13,29 @@ const NewAccountForm = ({ createNewAccountSuccess, changeCreateNewAccount }) => 
     const [password2, setPassword2] = useState("");
     const [submit, changeSubmit] = useState(false);
     const [info, setInfo] = useState(false);
- 
+  
 
-    function createAccount() {
+    function createAccount(ev) {
+        ev.preventDefault();
+        console.log(name, userName, password1, password2)
         if (name && userName && password1 && password2) {
             axios.get("/user/login/"+userName).then(response => {
+                console.log("response: ", response.data)
                 if (response.data === "") {
                     if (password1 === password2) {
+
                         const userObject = {
                             name: name,
                             username: userName,
-                            password: password1
+                            password: bcrypt.hashSync(password1, 10)
                         }
+                        
                         userService
                             .createUser(userObject)
                             .then(response => {
-                                createNewAccountSuccess();
-                                console.log("new account created")
-                            })
-                            .catch(error => {
-                                console.log(error.response.data.error)
+                                console.log("new account created");
+                                createNewAccountSuccess(true);
+                                changeCreateNewAccount(false);
                             })
                     } else {
                         setInfo("The password and its confirmation do not match...");
@@ -51,20 +55,18 @@ const NewAccountForm = ({ createNewAccountSuccess, changeCreateNewAccount }) => 
     
     const closeIcon = () => {
         return (
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="red" className="bi bi-x-lg" viewBox="0 0 16 16">
+            <svg onClick={() => changeCreateNewAccount(false)} xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="red" className="bi bi-x-lg xIcon" viewBox="0 0 16 16">
                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
             </svg>
         )
     }
 
     return (
-        <div className="signInComponent">   
-            <div 
-                className="closeIcon"
-                onClick={() => changeCreateNewAccount(false)} >
+        <div className="formComponent newAccount">   
+            <div className="closeIcon" >
                 {closeIcon()} 
             </div> 
-            <h2> Create a new account: </h2>
+            <h4> Create a new account: </h4>
             <Form className="signInForm">
 
                 { info && 
@@ -116,12 +118,13 @@ const NewAccountForm = ({ createNewAccountSuccess, changeCreateNewAccount }) => 
                     }
                 </Form.Group>
 
-                <button className="btn btn-success" onClick={() => createAccount()}>
+                <button className="btn btn-success" onClick={(ev) => createAccount(ev)}>
                     Submit
                 </button>
               
             </Form>
         </div>
+       
     )
 }
 

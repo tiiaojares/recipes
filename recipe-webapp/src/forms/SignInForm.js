@@ -2,6 +2,9 @@ import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import bcrypt from 'bcryptjs';
+import { setUser, store } from '../store';
+import { useNavigate } from 'react-router-dom';
 
 
 const SignInForm = ({ setLogIn, changeCreateNewAccount }) => {
@@ -9,6 +12,7 @@ const SignInForm = ({ setLogIn, changeCreateNewAccount }) => {
     const [password, setPassword] = useState("");
     const [submit, changeSubmit] = useState(false);
     const [wrongPassword, changeWrongPassword] = useState(false);
+    const navigate = useNavigate();
  
 
     function signIn() {
@@ -18,12 +22,22 @@ const SignInForm = ({ setLogIn, changeCreateNewAccount }) => {
                 if (response.data === "") {
                     changeWrongPassword(true);
                 } else {
-                    if (response.data.password === password) {
-                        console.log("wellcome ", response.data.name);
-                        setLogIn(true);
-                    } else {
-                        changeWrongPassword(true);
-                    }       
+                    const getHashedPassword = response.data.password;
+                    bcrypt.compare(password, getHashedPassword, function(error, isMatch) {
+                        if (error) {
+                            throw error;
+                        } else if (!isMatch) {
+                            changeWrongPassword(true);
+                        } else {
+                            if (!response.data.id) return;
+                            else {
+                                console.log("welcome ", response.data.name);
+                                store.dispatch(setUser(response.data));
+                                navigate("/welcome");
+                            }
+                            
+                        }
+                    })      
                 }
             })
             changeSubmit(false);
