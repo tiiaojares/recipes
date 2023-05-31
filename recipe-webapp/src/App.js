@@ -5,8 +5,8 @@ import { Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './App.css';
 import { LogInPage } from './LogInPage';
-import { NewAccountForm } from './forms/NewAccountForm';
 import { store } from './store.js';
+import { MainPage } from './pages/MainPage'
 
 
 
@@ -14,6 +14,7 @@ const Main = () => {
     return (
         <Routes>
             <Route path="/"  element={<LogInPage />} />
+            <Route path="/welcome" element={<MainPage /> } />
         </Routes>
     )
 }

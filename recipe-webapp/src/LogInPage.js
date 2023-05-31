@@ -6,7 +6,10 @@ import { NewAccountForm } from './forms/NewAccountForm';
 import Form from 'react-bootstrap/Form';
 
 
-const LogInPage = ({setLogIn}) => {
+
+
+
+const LogInPage = () => {
     const [createNewAccount, changeCreateNewAccount] = useState(false);
     const [newAccountSuccess, setNewAccountSuccess] = useState(false);
     
@@ -32,8 +35,7 @@ const LogInPage = ({setLogIn}) => {
 
                 { !createNewAccount ?
                     <SignInForm 
-                        changeCreateNewAccount={changeCreateNewAccount} 
-                        setLogIn={setLogIn} /> :
+                        changeCreateNewAccount={changeCreateNewAccount} /> :
                     <NewAccountForm 
                         createNewAccountSuccess={createNewAccountSuccess}
                         changeCreateNewAccount={changeCreateNewAccount}
