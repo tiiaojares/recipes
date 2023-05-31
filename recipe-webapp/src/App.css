@@ -4,6 +4,19 @@
     background-size: cover;
     padding-bottom: 0;
 }
+.userBackroung {
+    background-image: url(C:\Users\Tiia\Documents\training\recipes\recipe-webapp\src\images\food-2.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: right;
+    padding-bottom: 0;
+
+}
+.navbar {
+    position: relative;
+    padding-top: 1rem;
+    background-color: #f2f2f2;
+}
 .mainPageContainer {
     position: relative;
 }
