@@ -8,12 +8,13 @@
     position: relative;
 }
 
-.signInComponent {
+.formComponent {
     position: absolute;
     padding: 1rem;
     background-color: #f2f2f2;
     opacity: 95%;
     border-radius: 20px;
+    font-size: 1rem;
 }
 
 
@@ -38,7 +39,6 @@ form > p > u:hover {
     margin-top: 0.25rem;
     font-size: .875em;
     --bs-text-opacity: 1;
-    margin-left: 0.8rem;
 }
 
 
@@ -48,17 +48,23 @@ form > .btn {
 
 .closeIcon {
     text-align: right;
+    
+}
+.xIcon {
     margin-right: 1rem;
     cursor: pointer;
 }
 
 
 @media screen and (min-width: 600px) {
-    .signInComponent {
+    .formComponent {
         position: absolute;
         width: 50%;
         margin-left: 25%;
-        margin-top: 15%;
+        margin-top: 10%;
+    }
+    .newAccount {
+        margin-top: 1%;
     }
     .infoText {
         color: red;
@@ -68,7 +74,7 @@ form > .btn {
         position: absolute;
         text-align: center;
         width: 100%;
-        top: 3rem;
+        top: 2rem;
         left: 0;
         padding: 1rem;
         margin-top: 1rem;
@@ -77,20 +83,30 @@ form > .btn {
         font-size: 1.5rem;
         opacity: 80%;
     }
+    .showMobile {
+        display: none;
+    }
     
    
 }
 @media screen and (max-width: 600px) {
-    .signInComponent {
+
+    .formComponent {
         position: absolute;
-        width: 95%;
-        margin: 0;
+        width: 100%;
+        left: 0;
         margin-top: 30%;
+    }
+    .newAccount {
+        margin-top: 2rem;
     }
     .infoText {
         color: red;
         text-align: left;
         font-size: 0.8rem;
+    }
+    .closeIcon {
+        margin-bottom: 1rem;
     }
     .success {
         position: absolute;
@@ -104,6 +120,9 @@ form > .btn {
         font-size: 1rem;
         opacity: 70%;
 
+    }
+    .hideMobile {
+        display: none;
     }
 
 }

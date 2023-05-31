@@ -3,11 +3,13 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
-const SignInForm = ({changeCreateNewAccount, setLogIn}) => {
+
+const SignInForm = ({ setLogIn, changeCreateNewAccount }) => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [submit, changeSubmit] = useState(false);
     const [wrongPassword, changeWrongPassword] = useState(false);
+ 
 
     function signIn() {
         changeSubmit(true);
@@ -30,7 +32,7 @@ const SignInForm = ({changeCreateNewAccount, setLogIn}) => {
 
 
     return (
-        <div className="signInComponent">
+        <div className="formComponent">
              <h2> Sign in: </h2>
             
             <Form className="signInForm">
@@ -63,7 +65,16 @@ const SignInForm = ({changeCreateNewAccount, setLogIn}) => {
                 <Button variant="success" onClick={() => signIn()}>
                     Submit
                 </Button>
-                <p>Or create a new account <u onClick={() => changeCreateNewAccount(true)}> here </u> </p>
+                <p className="hideMobile" >Or create a new account <u onClick={() => changeCreateNewAccount(true)}> here </u> </p>
+                
+                <div className="showMobile">
+                    <p style={{textAlign:'center', marginTop:'1rem'}}> OR </p>
+                    <Button 
+                        style={{width:'100%'}}
+                        onClick={() => changeCreateNewAccount(true)}>
+                        Create a new account
+                    </Button>
+                </div>
             </Form>
         </div>
     )
