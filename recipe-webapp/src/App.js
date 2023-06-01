@@ -4,9 +4,10 @@ import {HashRouter as Router} from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import './App.css';
-import { LogInPage } from './LogInPage';
+import { LogInPage } from './pages/LogInPage';
 import { store } from './store.js';
 import { MainPage } from './pages/MainPage'
+import { CreateNewRecipe } from './pages/CreateNewRecipe';
 
 
 
@@ -15,6 +16,7 @@ const Main = () => {
         <Routes>
             <Route path="/"  element={<LogInPage />} />
             <Route path="/welcome" element={<MainPage /> } />
+            <Route path="/newRecipe" element={<CreateNewRecipe />} />
         </Routes>
     )
 }
