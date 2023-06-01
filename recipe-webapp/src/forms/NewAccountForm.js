@@ -17,7 +17,6 @@ const NewAccountForm = ({ createNewAccountSuccess, changeCreateNewAccount }) => 
 
     function createAccount(ev) {
         ev.preventDefault();
-        console.log(name, userName, password1, password2)
         if (name && userName && password1 && password2) {
             axios.get("/user/login/"+userName).then(response => {
                 console.log("response: ", response.data)
