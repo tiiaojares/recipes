@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import './App.css';
-import { SignInForm } from './forms/SignInForm';
-import { NewAccountForm } from './forms/NewAccountForm';
+import '../App.css';
+import { SignInForm } from '../forms/SignInForm';
+import { NewAccountForm } from '../forms/NewAccountForm';
 import Form from 'react-bootstrap/Form';
 
 
