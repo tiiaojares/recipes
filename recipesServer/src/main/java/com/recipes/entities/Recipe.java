@@ -19,11 +19,21 @@ public class Recipe {
     private String title;
     @Column (name = "description")
     private String description;
+    @Column (name="user_id")
+    private Integer userId;
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
     public Recipe() {
 
     }
-    public Recipe(Integer id, String title, String description) {
+    public Recipe(Integer id, String title, String description, Integer userId) {
         this.Id = id;
         this.title = title;
         this.description = description;

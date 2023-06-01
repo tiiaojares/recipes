@@ -31,6 +31,16 @@ public class RecipesController {
         return r;
     }
 
+    @GetMapping("/user/{userId}")
+    List<Recipe> getRecipesByUserId(@PathVariable int userId) {
+        List<Recipe> recipes = recipeRepo.findByUserId(userId);
+        if(recipes.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Foo Not Found");
+
+        }
+        return recipes;
+    }
+
     @PostMapping
     Recipe create(@RequestBody Recipe newRecipe) {
         recipeRepo.saveAndFlush(newRecipe);

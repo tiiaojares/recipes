@@ -39,9 +39,9 @@ public class RecipesControllerTest {
     @InjectMocks
     private RecipesController recipesController;
 
-    Recipe recipe1 = new Recipe(1, "kuvaus1", "otsikko1");
-    Recipe recipe2= new Recipe(2, "kuvaus2", "otsikko2");
-    Recipe recipe3 = new Recipe(3, "kuvaus3", "otsikko3");
+    Recipe recipe1 = new Recipe(1, "kuvaus1", "otsikko1", 1);
+    Recipe recipe2= new Recipe(2, "kuvaus2", "otsikko2", 1);
+    Recipe recipe3 = new Recipe(3, "kuvaus3", "otsikko3", 1);
 
     @Before
     public void setUp() {
