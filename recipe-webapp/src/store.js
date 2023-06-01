@@ -9,23 +9,33 @@ const initialState={
         username: "",
         password: "",
     },
+    recipes: {data: [{
+        id: 0,
+        title: "",
+        description: "",
+        userId: 0,
+    }]
+    }
 };
 
-export const userSlice = createSlice({
-    name: 'user',
+export const recipeSlice = createSlice({
+    name: 'recipe',
     initialState,
     reducers: {
         setUser: (state, action) => {
-            state.user=action.payload;
+            state.user = action.payload;
         },
+        setRecipes: (state, action) => {
+            state.recipes = action.payload;
+        }
     }
 });
 
 
 
-export const { setUser } = userSlice.actions;
+export const { setUser, setRecipes } = recipeSlice.actions;
 export const store = configureStore({
     reducer: {
-      userReducer: userSlice.reducer
+      recipeReducer: recipeSlice.reducer
     }
 })
