@@ -33,7 +33,7 @@ const SignInForm = ({ setLogIn, changeCreateNewAccount }) => {
                             else {
                                 console.log("welcome ", response.data.name);
                                 store.dispatch(setUser(response.data));
-                                navigate("/welcome");
+                                navigate("/recipes");
                             }
                             
                         }
