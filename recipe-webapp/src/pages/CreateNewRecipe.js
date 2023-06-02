@@ -23,7 +23,7 @@ const CreateNewRecipe = () => {
     if (id !== 0) {
     return (
         <div className="userBackroung">
-        <Navbar />
+        <Navbar text={"Create a new recipe"}/>
         <div className="container">
             <div > 
             </div>

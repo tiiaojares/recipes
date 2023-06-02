@@ -37,7 +37,7 @@ const MainPage = () => {
         return (
            
             <div className="userBackroung">
-                <Navbar />
+                <Navbar text={"My own recipes"} />
                 <div className="container">
                     <div > 
                     </div>

@@ -7,7 +7,7 @@ import { setUser, store } from '../store';
 import { useNavigate } from 'react-router-dom';
 
 
-const Navbar = () => {
+const Navbar = ({text}) => {
 
     const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ const Navbar = () => {
         <nav className="navbar form-inline" style={{paddingTop: '1rem', paddingBottom: '1rem'}} >
             <div className="container">
                 <div/>
-                <h3 style={{color: 'green', fontFamily: 'serif', fontStyle: 'italic', marginBottom: '0'}}> My Own Recipes</h3>
+                <h3 style={{color: 'green', fontFamily: 'serif', fontStyle: 'italic', marginBottom: '0'}}> {text} </h3>
                 <div>
                     <Dropdown>
                         <Dropdown.Toggle className="btn btn-success btn-sm">
@@ -42,12 +42,13 @@ const Navbar = () => {
                         <Dropdown.Menu>
                             <Dropdown.Item  
                                 className="btn btn-success btn-sm" 
-                                > Search...
+                                onClick={() => navigate("/recipes")}
+                                > My own recipes
                             </Dropdown.Item>
                             <Dropdown.Item  
                                 className="btn btn-success btn-sm" 
-                                onClick={() => navigate("/newRecipe")}
-                                > Create new 
+                                onClick={() => navigate("/new_recipe")}
+                                > Create a new recipe 
                             </Dropdown.Item>
                             <Dropdown.Item  
                                 className="btn btn-success btn-sm" 
