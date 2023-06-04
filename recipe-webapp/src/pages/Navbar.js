@@ -52,6 +52,11 @@ const Navbar = ({text}) => {
                             </Dropdown.Item>
                             <Dropdown.Item  
                                 className="btn btn-success btn-sm" 
+                                onClick={() => navigate("/profile")}
+                                > Omat tiedot
+                            </Dropdown.Item>
+                            <Dropdown.Item  
+                                className="btn btn-success btn-sm" 
                                 onClick={() => logOut()}>Kirjaudu ulos
                             </Dropdown.Item>
                         </Dropdown.Menu>

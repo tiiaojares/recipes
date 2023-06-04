@@ -8,6 +8,7 @@ import { LogInPage } from './pages/LogInPage';
 import { store } from './store.js';
 import { MainPage } from './pages/MainPage'
 import { CreateNewRecipe } from './pages/CreateNewRecipe';
+import { Profile } from './pages/Profile';
 
 
 
@@ -17,6 +18,7 @@ const Main = () => {
             <Route path="/"  element={<LogInPage />} />
             <Route path="/recipes" element={<MainPage /> } />
             <Route path="/new_recipe" element={<CreateNewRecipe />} />
+            <Route path="/profile" element={<Profile />} />
         </Routes>
     )
 }
