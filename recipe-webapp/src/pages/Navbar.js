@@ -43,16 +43,16 @@ const Navbar = ({text}) => {
                             <Dropdown.Item  
                                 className="btn btn-success btn-sm" 
                                 onClick={() => navigate("/recipes")}
-                                > My own recipes
+                                > Omat reseptit
                             </Dropdown.Item>
                             <Dropdown.Item  
                                 className="btn btn-success btn-sm" 
                                 onClick={() => navigate("/new_recipe")}
-                                > Create a new recipe 
+                                > Luo uusi resepti
                             </Dropdown.Item>
                             <Dropdown.Item  
                                 className="btn btn-success btn-sm" 
-                                onClick={() => logOut()}>Log out
+                                onClick={() => logOut()}>Kirjaudu ulos
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>

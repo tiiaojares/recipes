@@ -37,11 +37,11 @@ const NewAccountForm = ({ createNewAccountSuccess, changeCreateNewAccount }) => 
                                 changeCreateNewAccount(false);
                             })
                     } else {
-                        setInfo("The password and its confirmation do not match...");
+                        setInfo("Salasanat eivät täsmää");
                         changeSubmit(false);
                     }
                 } else {
-                    setInfo("Username not available");
+                    setInfo("Käyttäjätunnus on jo käytössä");
                 }
             })     
                
@@ -65,7 +65,7 @@ const NewAccountForm = ({ createNewAccountSuccess, changeCreateNewAccount }) => 
             <div className="closeIcon" >
                 {closeIcon()} 
             </div> 
-            <h4> Create a new account: </h4>
+            <h4> Luo uusi käyttäjä: </h4>
             <Form className="signInForm">
 
                 { info && 
@@ -74,51 +74,51 @@ const NewAccountForm = ({ createNewAccountSuccess, changeCreateNewAccount }) => 
                     </Form.Label>}
            
                 <Form.Group className="mb-3" >
-                    <Form.Label>Name</Form.Label>
+                    <Form.Label>Nimi: </Form.Label>
                     <Form.Control type="text" onChange={event => setName(event.target.value)}/>
                     {submit && !name ?
                     <Form.Text className="alertText">
-                        Enter your name
+                        Syötä nimi
                     </Form.Text>
                     : null
                     }
                 </Form.Group>
 
                 <Form.Group className="mb-3" >
-                    <Form.Label>Username</Form.Label>
+                    <Form.Label> Käyttäjätunnus: </Form.Label>
                     <Form.Control type="text"  onChange={event => setUserName(event.target.value)}/>
                     {submit && !userName ?
                     <Form.Text className="alertText">
-                        Enter your username
+                        Syötä käyttäjätunnus
                     </Form.Text>
                     : null
                     }
                 </Form.Group>
             
                 <Form.Group className="mb-3" controlId="formBasicPassword1">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label> Salasana: </Form.Label>
                     <Form.Control type="password" onChange={event => setPassword1(event.target.value)}/>
                     { submit && !password1 ?
                     <Form.Text className="alertText">
-                        Enter your password
+                        Syötä salasana
                     </Form.Text>
                     : null
                     }
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword2">
-                    <Form.Label>Confirm the password</Form.Label>
+                    <Form.Label> Salasana uudelleen: </Form.Label>
                     <Form.Control type="password" onChange={event => setPassword2(event.target.value)}/>
                     { submit && !password2 ?
                     <Form.Text className="alertText">
-                        Confirm the password
+                        Syötä salasana uudelleen
                     </Form.Text>
                     : null
                     }
                 </Form.Group>
 
                 <button className="btn btn-success" onClick={(ev) => createAccount(ev)}>
-                    Submit
+                    Lähetä
                 </button>
               
             </Form>

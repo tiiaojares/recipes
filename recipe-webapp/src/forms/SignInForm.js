@@ -47,46 +47,46 @@ const SignInForm = ({ setLogIn, changeCreateNewAccount }) => {
 
     return (
         <div className="formComponent">
-             <h2> Sign in: </h2>
+             <h2> Kirjaudu sisään: </h2>
             
             <Form className="signInForm">
             
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control type="text" placeholder="Enter username" onChange={event => setUserName(event.target.value)}/>
+                    <Form.Label>Käyttäjätunnus:</Form.Label>
+                    <Form.Control type="text" onChange={event => setUserName(event.target.value)}/>
                     {submit && !userName ?
                     <Form.Text className="alertText" style={{textAlign: 'left'}}>
-                        Enter your username
+                        Syötä käyttäjätunnus
                     </Form.Text>
                     : null
                     }
                 </Form.Group>
             
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" onChange={event => setPassword(event.target.value)}/>
+                    <Form.Label>Salasana:</Form.Label>
+                    <Form.Control type="password" onChange={event => setPassword(event.target.value)}/>
                     { submit && !password ?
                     <Form.Text className="alertText">
-                        Enter your password
+                        Syötä salasana
                     </Form.Text>
                     : null
                     }
                 </Form.Group>
                 {wrongPassword && 
                     <Form.Label style={{color:'red', textAlign:'left', marginBottom: '1rem'}}>
-                        Wrong username or password
+                        Väärä käyttäjätunnus tai salasana
                     </Form.Label>}
                 <Button variant="success" onClick={() => signIn()}>
-                    Submit
+                    OK
                 </Button>
-                <p className="hideMobile" >Or create a new account <u onClick={() => changeCreateNewAccount(true)}> here </u> </p>
+                <p className="hideMobile" > Tai <u onClick={() => changeCreateNewAccount(true)}> luo uusi käyttäjä </u> </p>
                 
                 <div className="showMobile">
-                    <p style={{textAlign:'center', marginTop:'1rem'}}> OR </p>
+                    <p style={{textAlign:'center', marginTop:'1rem'}}> TAI </p>
                     <Button 
                         style={{width:'100%'}}
                         onClick={() => changeCreateNewAccount(true)}>
-                        Create a new account
+                        Luo uusi käyttäjä
                     </Button>
                 </div>
             </Form>

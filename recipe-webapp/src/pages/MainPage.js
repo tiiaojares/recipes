@@ -37,7 +37,7 @@ const MainPage = () => {
         return (
            
             <div className="userBackroung">
-                <Navbar text={"My own recipes"} />
+                <Navbar text={"Omat reseptit"} />
                 <div className="container">
                     <div > 
                     </div>

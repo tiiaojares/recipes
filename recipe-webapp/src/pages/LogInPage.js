@@ -28,7 +28,7 @@ const LogInPage = () => {
         <div className="bgimage p-5 text-center ">
             {newAccountSuccess &&
                 <Form className="success">
-                    <Form.Label> New account created! </Form.Label>
+                    <Form.Label> Uusi käyttäjätili luotu! </Form.Label>
                 </Form> }
 
             <div className="container mainPageContainer">
