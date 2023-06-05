@@ -69,6 +69,13 @@
         padding-left: 3rem;
         padding-right: 3rem;
     }
+ 
+   
+    .recipeTitle:hover {
+        cursor: pointer;
+        font-weight: bolder;
+        color: rgb(26, 162, 26);
+    }
 
 
 }

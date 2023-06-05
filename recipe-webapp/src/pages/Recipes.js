@@ -14,7 +14,10 @@ const RecipeTable = ({recipes}) => {
     return (
         recipes.map(r => 
             <tr key={ r.id }>
-                <td onClick={() => navigate("/recipes/"+r.id)} > { r.title } </td>
+                <td 
+                onClick={() => navigate("/recipes/"+r.id)}
+                className="recipeTitle"
+                style={{width: '40%'}}> { r.title } </td>
                 <td style={{fontStyle: 'italic'}}> { r.description } </td>
             </tr>
         )
