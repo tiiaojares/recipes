@@ -12,7 +12,7 @@ const NewAccountForm = ({ createNewAccountSuccess, changeCreateNewAccount }) => 
     const [password1, setPassword1] = useState("");
     const [password2, setPassword2] = useState("");
     const [submit, changeSubmit] = useState(false);
-    const [info, setInfo] = useState(false);
+    const [info, setInfo] = useState("");
   
 
     function createAccount(ev) {
