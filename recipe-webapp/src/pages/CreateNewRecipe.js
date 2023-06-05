@@ -34,6 +34,7 @@ const CreateNewRecipe = () => {
             .createRecipe(recipeObject)
             .then(response => {
                 console.log("new recipe created: ", response.data);
+                navigate("/recipes");
             })
     }
 
