@@ -43,6 +43,9 @@
         display: none;
 
     }
+    .infoText {
+        font-size: 1rem;
+    }
 }
 
 
