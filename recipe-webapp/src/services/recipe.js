@@ -6,4 +6,8 @@ const createRecipe = (newRecipe) => {
     return axios.post(baseUrl, newRecipe);
 }
 
-export default { createRecipe }
+const getRecipe = (id) => {
+    return axios.get(baseUrl+"/"+id)
+}
+
+export default { createRecipe, getRecipe }
