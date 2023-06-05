@@ -3,6 +3,7 @@ package com.recipes.controllers;
 import com.recipes.entities.User;
 import com.recipes.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +31,19 @@ public class UserController {
         User foundUser = userRepo.findByUsername(username);
         return foundUser;
     }
+
+    @PutMapping("/{userId}")
+    public ResponseEntity<?> update(@PathVariable int userId, @RequestBody User user) {
+        if ( user == null) {
+            return ResponseEntity.badRequest().body("No data");
+        }
+        if (userId != user.getId()) {
+            return ResponseEntity.badRequest().body("ID mismatch");
+        }
+        userRepo.saveAndFlush(user);
+        return ResponseEntity.ok(user);
+    }
+
 
 
 }

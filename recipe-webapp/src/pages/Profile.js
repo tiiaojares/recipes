@@ -6,7 +6,8 @@ import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import bcrypt from 'bcryptjs';
-import axios from 'axios';
+import userService from '../services/user';
+import { setUser, store } from '../store';
 
 const Profile = () => {
     let user = useSelector(state => state.recipeReducer.user);
@@ -38,18 +39,28 @@ const Profile = () => {
                     setErrorInfo("Väärä salasana");
                 } else {
                     if ((password1 === password2) && (password1 !== "")) {
-                        console.log("pas1: ", password1)
-                        console.log("salasana vaihdettu")
-                        setErrorInfo("");
-                        setNewPasswordMatch(true);
-                        setSuccessInfo("Salasanan vaihtaminen onnistui!");
-                        setTimeout(() => {
-                            setSuccessInfo("");
-                            setChangeInformation(false);
-                            setPassword1("");
-                            setPassword2("");
-                        }, 2000)
+                       const updatedUser = {
+                        id: user.id,
+                        name: oldNname,
+                        username: oldUsername,
+                        password: bcrypt.hashSync(password1, 10)
+                       }
 
+                       userService
+                            .updateUser(updatedUser)
+                            .then(response => {
+                                store.dispatch(setUser(response.data));
+                                console.log("updated user: ", response.data);
+                                setErrorInfo("");
+                                setNewPasswordMatch(true);
+                                setSuccessInfo("Salasanan vaihtaminen onnistui!");
+                                setTimeout(() => {
+                                    setSuccessInfo("");
+                                    setChangeInformation(false);
+                                    setPassword1("");
+                                    setPassword2("");
+                                }, 2000)
+                            })
                     } else {
                         setErrorInfo("Salasanan vaihtaminen epäonnistui");
                         setNewPasswordMatch(false);
