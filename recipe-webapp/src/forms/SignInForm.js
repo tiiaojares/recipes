@@ -7,7 +7,7 @@ import { setUser, store } from '../store';
 import { useNavigate } from 'react-router-dom';
 
 
-const SignInForm = ({ setLogIn, changeCreateNewAccount }) => {
+const SignInForm = ({ changeCreateNewAccount }) => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [submit, changeSubmit] = useState(false);
